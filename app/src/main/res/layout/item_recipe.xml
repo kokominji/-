@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/detailViewItem_profile_image"
+            android:src="@mipmap/ic_launcher"
+            android:layout_margin="7.5dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+        <TextView
+            android:id="@+id/detailViewItem_profile_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User name"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/detailViewItem_imageView_content"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        />
+    <TextView
+        android:id="@+id/detailViewItem_explain_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="Explain content"/>
+    <TextView
+        android:id="@+id/detailViewItem_recipe_material_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="#Recipe Meterial"/>
+    <TextView
+        android:id="@+id/detailViewItem_date_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:text="YYYY-MM-DD"
+        android:gravity="right"/>
+</LinearLayout>

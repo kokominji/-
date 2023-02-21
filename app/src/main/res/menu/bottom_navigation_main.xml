@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_Chatting"
+        android:icon="@drawable/comment"
+        android:title="Chatting"/>
+    <item
+        android:id="@+id/action_Recipe"
+        android:icon="@drawable/home"
+        android:title="Recipe"/>
+    <item
+        android:id="@+id/action_Upload"
+        android:icon="@drawable/post"
+        android:title="Upload"/>
+
+    <item
+        android:id="@+id/action_food"
+        android:icon="@drawable/home"
+        android:title="Recipe"/>
+</menu>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1046847060432",
+    "project_id": "dineer",
+    "storage_bucket": "dineer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046847060432:android:c47f6fc4444be5edece1d5",
+        "android_client_info": {
+          "package_name": "org.tensorflow.lite.examples.detection.dinner.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046847060432-8oi2r0nhcro64tuhs863iaiba4419fcq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.tensorflow.lite.examples.detection.dinner.chat",
+            "certificate_hash": "cff579361936d8ede4a3a5f8c9f680899db0aa91"
+          }
+        },
+        {
+          "client_id": "1046847060432-3q2evkvs9rvi2d4b8d2c84599ofn2tlo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlR0ABavFgzyEMVeVRZVz6qlVO9NiSnVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046847060432-3q2evkvs9rvi2d4b8d2c84599ofn2tlo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
