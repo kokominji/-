@@ -19,7 +19,7 @@
         android:theme="@style/Theme.Dinner"
         tools:targetApi="31">
         <activity
-            android:name=".MessageActivity"
+            android:name=".chat.MessageActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
