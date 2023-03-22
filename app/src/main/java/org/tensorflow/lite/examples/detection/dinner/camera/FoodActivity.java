@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.examples.detection.dinner.R;
-import org.tensorflow.lite.examples.detection.dinner.ml.BestFp16;
+import org.tensorflow.lite.examples.detection.dinner.ml.Model;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.IOException;
@@ -30,12 +30,12 @@ public class FoodActivity extends AppCompatActivity {
     Button camera, gallery;
     ImageView imageView;
     TextView result;
-    int imageSize = 320;
+    int imageSize = 32;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food);
+        setContentView(R.layout.activity_main);
 
         camera = findViewById(R.id.button);
         gallery = findViewById(R.id.button2);
@@ -46,7 +46,7 @@ public class FoodActivity extends AppCompatActivity {
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                if (checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent, 3);
                 } else {
@@ -65,10 +65,10 @@ public class FoodActivity extends AppCompatActivity {
 
     public void classifyImage(Bitmap image){
         try {
-            BestFp16 model = BestFp16.newInstance(getApplicationContext());
+            Model model = Model.newInstance(getApplicationContext());
 
             // Creates inputs for reference.
-            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 320, 320, 3}, DataType.FLOAT32);
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 32, 32, 3}, DataType.FLOAT32);
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
             byteBuffer.order(ByteOrder.nativeOrder());
 
@@ -88,7 +88,7 @@ public class FoodActivity extends AppCompatActivity {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            BestFp16.Outputs outputs = model.process(inputFeature0);
+            Model.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
@@ -101,8 +101,8 @@ public class FoodActivity extends AppCompatActivity {
                     maxPos = i;
                 }
             }
-            String[] classes = {"bean sprouts", "beef", "chicken", "egg", "fork", "garlic", "green onion", "kimchi", "onion", "photato", "spam"};
-            result.setText(classes[10]);
+            String[] classes = {"Apple", "Banana", "Orange"};
+            result.setText(classes[maxPos]);
 
             // Releases model resources if no longer used.
             model.close();
@@ -110,7 +110,6 @@ public class FoodActivity extends AppCompatActivity {
             // TODO Handle the exception
         }
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -140,4 +139,3 @@ public class FoodActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 }
-
